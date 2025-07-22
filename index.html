@@ -263,8 +263,44 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        /* Solar Insights */
-        .solar-insights {
+        /* Perfect Fit Section */
+        .perfect-fit {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+        
+        .fit-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .fit-paragraph {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+        
+        .fit-paragraph:last-child {
+            margin-bottom: 0;
+        }
+        
+        .fit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2F5233;
+            margin-bottom: 1rem;
+        }
+        
+        .fit-paragraph p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        /* CTA Section */
+        .cta-section {
             background: linear-gradient(135deg, #2F5233, #00A86B);
             color: white;
             padding: 4rem 2rem;
@@ -273,33 +309,7 @@
             text-align: center;
         }
         
-        .insight-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .insight-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .insight-title {
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
         /* Contact */
-        .contact {
-            background: #2F5233;
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        
         .contact-buttons {
             display: flex;
             gap: 1rem;
@@ -332,10 +342,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .insight-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .contact-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -343,6 +349,18 @@
             
             .case-gallery {
                 grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+            
+            .perfect-fit {
+                padding: 2rem 1.5rem;
+            }
+            
+            .fit-title {
+                font-size: 1.1rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 1.5rem;
             }
         }
         
@@ -500,46 +518,56 @@
         </div>
     </section>
 
-    <!-- Solar Market Insights -->
+    <!-- Perfect Fit Section -->
     <section class="section">
-        <div class="solar-insights">
-            <h2 class="section-title" style="color: white;">Por qué soy perfect fit para Ruuf</h2>
+        <div class="perfect-fit">
+            <h2 class="section-title">Por qué soy perfect fit para Ruuf</h2>
             
-            <div class="insight-grid">
-                <div class="insight-card">
-                    <h4 class="insight-title">Foco en creatividad y producción rápida</h4>
+            <div class="fit-content">
+                <div class="fit-paragraph">
+                    <h4 class="fit-title">Foco en creatividad y producción rápida</h4>
                     <p>Tengo experiencia y preparación para generar mensajes que acerquen temas complejos en contenido accesible, utilizando diversas herramientas digitales en formatos ad-hoc, sin perder de vista la funcionalidad y carácter narrativo.</p>
                 </div>
                 
-                <div class="insight-card">
-                    <h4 class="insight-title">Experiencia en comunicaciones</h4>
+                <div class="fit-paragraph">
+                    <h4 class="fit-title">Experiencia en comunicaciones</h4>
                     <p>Monitoreo panoramas, buscando la forma de relacionar la marca con actores institucionales, de la industria y de medios para aumentar el posicionamiento en tópicos de interés masivo. De la misma forma genero instancias para fortalecer a las comunidades orgánicas.</p>
                 </div>
                 
-                <div class="insight-card">
-                    <h4 class="insight-title">Mindset sistémico</h4>
-                    <p>Además de implementar campañas, realizar las mediciones correspondientes o llevar un registro de las acciones, estoy familiarizado con principios de diseño de interacción y experiencias. Este componente podría significar para Ruuf generar o adaptar la estrategia de marketing y comunicaciones para que forme parte del sistema de diseño o de gestión que ya existe con mayor fluidez.</p>
+                <div class="fit-paragraph">
+                    <h4 class="fit-title">Mindset sistémico</h4>
+                    <p>Además de manejar la implementación y reporte de acciones de marketing digital, estoy familiarizado con principios de diseño de interacción y experiencias. Este componente podría significar para Ruuf generar o adaptar la estrategia de marketing y comunicaciones para que forme parte del sistema de diseño o de gestión que ya existe con mayor fluidez.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <h2 class="section-title" style="color: white;">Conversemos</h2>
-        
-        <div class="contact-buttons">
-            <a href="mailto:jcreyes1@uc.cl" class="contact-btn">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="https://linkedin.com/in/juanreyesbarrios" class="contact-btn">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="tel:+56920323788" class="contact-btn">
-                <i class="fas fa-phone"></i> WhatsApp
-            </a>
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="cta-section">
+            <h2 class="section-title" style="color: white;">Conversemos</h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">Construyamos juntos el content strategy que necesita Ruuf para educar el mercado solar chileno</p>
+            
+            <div class="contact-buttons">
+                <a href="mailto:jcreyes1@uc.cl" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://linkedin.com/in/juanreyesbarrios" class="contact-btn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="tel:+56920323788" class="contact-btn">
+                    <i class="fas fa-phone"></i> WhatsApp
+                </a>
+            </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer style="background: #f8f9fa; padding: 2rem; text-align: center; border-top: 1px solid #eee;">
+        <p style="color: #666; font-size: 0.9rem; margin: 0;">
+            Esta página fue creada con ayuda de Claude 4.0 en la arquitectura de información y layout, pero el contenido fue creado por Juan.
+        </p>
+    </footer>
 
     <script>
         // Smooth scrolling for navigation links
