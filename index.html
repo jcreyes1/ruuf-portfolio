@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Reyes Barrios - Content Marketing Specialist | Ruuf Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2F5233 0%, #00A86B 50%, #F7931E 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero .cta {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .hero .cta:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(47, 82, 51, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #F7931E;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2F5233;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Case Studies */
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .case-image {
+            width: 100%;
+            height: 200px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            border: 2px dashed #ddd;
+        }
+        
+        .case-category {
+            color: #00A86B;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2F5233;
+        }
+        
+        .case-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .case-metrics {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .metric {
+            background: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2F5233;
+        }
+        
+        .case-relevance {
+            background: linear-gradient(135deg, #00A86B, #F7931E);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Capabilities Matrix */
+        .capabilities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .capability-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid #00A86B;
+        }
+        
+        .capability-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00A86B, #F7931E);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .capability-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2F5233;
+        }
+        
+        .capability-list {
+            list-style: none;
+        }
+        
+        .capability-list li {
+            padding: 0.3rem 0;
+            color: #666;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .capability-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00A86B;
+            font-weight: bold;
+        }
+        
+        /* Methodology */
+        .methodology {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2F5233, #00A86B);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem auto;
+        }
+        
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2F5233;
+        }
+        
+        .step-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Solar Insights */
+        .solar-insights {
+            background: linear-gradient(135deg, #2F5233, #00A86B);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .insight-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .insight-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        /* Portfolio Gallery */
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            background: #f8f9fa;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            border: 2px dashed #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Contact */
+        .contact {
+            background: #2F5233;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #00A86B;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            background: #F7931E;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+            
+            .capabilities {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#hero" class="nav-logo">Juan Reyes Barrios</a>
+            <ul class="nav-links">
+                <li><a href="#cases">Casos</a></li>
+                <li><a href="#capabilities">Habilidades</a></li>
+                <li><a href="#methodology">Proceso</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Content Marketing Specialist que transforma conceptos complejos en narrativas que educan y convierten</h1>
+            <p class="subtitle">8+ años creando content systems que escalan - desde UN guidelines hasta 7M+ reach campaigns</p>
+            <a href="#cases" class="cta">Ver mi trabajo <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="cases" class="section">
+        <h2 class="section-title">Core Content Showcase</h2>
+        <p class="section-subtitle">Casos que demuestran mi capacidad para crear content que educa y genera resultados medibles</p>
+        
+        <div class="case-studies">
+            <!-- Caso 1: Educational Content -->
+            <div class="case-card">
+                <div class="case-image">
+                    [AGREGAR: Screenshots de campañas UNICEF - carruseles educativos, infografías]
+                </div>
+                <div class="case-category">Educational Content que Convierte</div>
+                <h3 class="case-title">UNICEF Chile - Content Educativo Multiplataforma</h3>
+                <p class="case-description">
+                    Convertí políticas UN complejas en contenido chileno accesible, creando sistema de content educativo que simplifica temas técnicos para audiencias diversas.
+                </p>
+                <div class="case-metrics">
+                    <span class="metric">7M+ Reach</span>
+                    <span class="metric">20x Engagement</span>
+                    <span class="metric">$30K Budget</span>
+                </div>
+                <div class="case-relevance">
+                    <strong>Relevancia para Ruuf:</strong> Same challenge - hacer solar accesible y comprensible para chilenos que no conocen la tecnología.
+                </div>
+            </div>
+
+            <!-- Caso 2: Content System Optimization -->
+            <div class="case-card">
+                <div class="case-image">
+                    [AGREGAR: Before/After de workflows, templates, procesos]
+                </div>
+                <div class="case-category">Content System Optimization</div>
+                <h3 class="case-title">Optimización de Sistemas de Producción</h3>
+                <p class="case-description">
+                    Implementé workflows, templates y automation que redujeron timeline de producción sin sacrificar calidad, creando systems perfectos para startup scaling.
+                </p>
+                <div class="case-metrics">
+                    <span class="metric">90% Time Reduction</span>
+                    <span class="metric">2 weeks → 1 day</span>
+                    <span class="metric">Scalable Templates</span>
+                </div>
+                <div class="case-relevance">
+                    <strong>Relevancia para Ruuf:</strong> Perfect para first marketing hire que necesita build content operations from scratch con maximum efficiency.
+                </div>
+            </div>
+
+            <!-- Caso 3: Cross-Platform Content -->
+            <div class="case-card">
+                <div class="case-image">
+                    [AGREGAR: Grid de diferentes formatos - posts, reels, carruseles, infografías]
+                </div>
+                <div class="case-category">Cross-Platform Content Adaptation</div>
+                <h3 class="case-title">Content Matrix Multiplataforma</h3>
+                <p class="case-description">
+                    Desarrollé content strategy que adapta messaging core para múltiples formatos y audiencias, maximizando reach y engagement across channels.
+                </p>
+                <div class="case-metrics">
+                    <span class="metric">5+ Formats</span>
+                    <span class="metric">Multi-audience</span>
+                    <span class="metric">Brand Consistency</span>
+                </div>
+                <div class="case-relevance">
+                    <strong>Relevancia para Ruuf:</strong> Versatility que startup necesita - un content creator que maneja todos los formatos y plataformas.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Matrix -->
+    <section id="capabilities" class="section">
+        <h2 class="section-title">Content Capabilities Matrix</h2>
+        <p class="section-subtitle">Skills específicas que bring al content marketing de Ruuf</p>
+        
+        <div class="capabilities">
+            <div class="capability-card">
+                <div class="capability-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3 class="capability-title">Content Strategy & Planning</h3>
+                <ul class="capability-list">
+                    <li>Editorial calendars y content workflows</li>
+                    <li>Brand narrative development</li>
+                    <li>Educational content frameworks</li>
+                    <li>Content pillar strategy</li>
+                </ul>
+            </div>
+
+            <div class="capability-card">
+                <div class="capability-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="capability-title">Visual Content Production</h3>
+                <ul class="capability-list">
+                    <li>Social assets (posts, stories, reels)</li>
+                    <li>Infographics & data visualization</li>
+                    <li>Video editing & motion graphics</li>
+                    <li>Photography & image editing</li>
+                </ul>
+            </div>
+
+            <div class="capability-card">
+                <div class="capability-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="capability-title">Performance-Informed Content</h3>
+                <ul class="capability-list">
+                    <li>A/B testing para content optimization</li>
+                    <li>Analytics-driven content decisions</li>
+                    <li>Budget management ($30K+ campaigns)</li>
+                    <li>ROI measurement y reporting</li>
+                </ul>
+            </div>
+
+            <div class="capability-card">
+                <div class="capability-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="capability-title">AI-Enhanced Workflows</h3>
+                <ul class="capability-list">
+                    <li>AI-assisted content creation</li>
+                    <li>Automation tools y integrations</li>
+                    <li>Efficiency optimization</li>
+                    <li>Future-forward content strategies</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology" class="section">
+        <div class="methodology">
+            <h2 class="section-title" style="color: #2F5233;">Mi Content Framework</h2>
+            <p class="section-subtitle" style="color: #666;">EDUCATE → ENGAGE → CONVERT</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">Research</h4>
+                    <p class="step-description">Market + audience + competitors analysis</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title">Strategy</h4>
+                    <p class="step-description">Content pillars + distribution plan</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">Create</h4>
+                    <p class="step-description">Multi-format asset production</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4 class="step-title">Optimize</h4>
+                    <p class="step-description">Performance data + iteration</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4 class="step-title">Scale</h4>
+                    <p class="step-description">Systems + templates + automation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solar Market Insights -->
+    <section class="section">
+        <div class="solar-insights">
+            <h2 class="section-title" style="color: white;">Por qué soy perfect fit para Ruuf</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Understanding del mercado solar + content expertise = ventaja competitiva</p>
+            
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <h4 class="insight-title">Solar Market Education Need</h4>
+                    <p>Chilean solar adoption requires massive market education - exactly mi specialty en converting complex topics into accessible content.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h4 class="insight-title">First Marketing Hire Advantage</h4>
+                    <p>Experience building content systems from scratch + resource optimization = perfect para establishing Ruuf's content foundation.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h4 class="insight-title">Startup-Ready Mindset</h4>
+                    <p>Track record de rapid iteration, efficiency optimization, y building sustainable systems during high-growth phases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section id="portfolio" class="section">
+        <h2 class="section-title">Content Portfolio</h2>
+        <p class="section-subtitle">Muestra de diferentes tipos de content assets creados</p>
+        
+        <div class="portfolio-gallery">
+            <div class="gallery-item">
+                [AGREGAR: Mejores posts de Instagram]
+            </div>
+            <div class="gallery-item">
+                [AGREGAR: Carruseles educativos]
+            </div>
+            <div class="gallery-item">
+                [AGREGAR: Reels/Videos]
+            </div>
+            <div class="gallery-item">
+                [AGREGAR: Infografías]
+            </div>
+            <div class="gallery-item">
+                [AGREGAR: Campañas completas]
+            </div>
+            <div class="gallery-item">
+                [AGREGAR: Brand systems]
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2 class="section-title" style="color: white;">¿Listo para conversar?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Construyamos juntos el content strategy que necesita Ruuf para educar el mercado solar chileno</p>
+        
+        <div class="contact-buttons">
+            <a href="mailto:jcreyes1@uc.cl" class="contact-btn">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://linkedin.com/in/juanreyesbarrios" class="contact-btn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="tel:+56920323788" class="contact-btn">
+                <i class="fas fa-phone"></i> WhatsApp
+            </a>
+            <a href="#" class="contact-btn">
+                <i class="fas fa-calendar"></i> Agendar Meeting
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hide/show navigation on scroll
+        let lastScrollTop = 0;
+        const nav = document.querySelector('.nav');
+        
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all case cards and capability cards
+        document.querySelectorAll('.case-card, .capability-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
