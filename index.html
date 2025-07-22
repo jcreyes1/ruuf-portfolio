@@ -235,104 +235,32 @@
             font-weight: 500;
         }
         
-        /* Capabilities Matrix */
-        .capabilities {
+        /* Case Gallery */
+        .case-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.8rem;
+            margin-top: 0.5rem;
         }
         
-        .capability-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border-left: 4px solid #00A86B;
-        }
-        
-        .capability-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #00A86B, #F7931E);
-            border-radius: 15px;
+        .case-gallery .gallery-item {
+            aspect-ratio: 1;
+            background: #f8f9fa;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .capability-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #2F5233;
-        }
-        
-        .capability-list {
-            list-style: none;
-        }
-        
-        .capability-list li {
-            padding: 0.3rem 0;
-            color: #666;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-        
-        .capability-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #00A86B;
-            font-weight: bold;
-        }
-        
-        /* Methodology */
-        .methodology {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 4rem 2rem;
-            border-radius: 20px;
-            margin: 3rem 0;
-        }
-        
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .process-step {
+            color: #999;
+            font-size: 0.8rem;
+            border: 2px dashed #ddd;
+            transition: all 0.3s ease;
             text-align: center;
-            position: relative;
+            padding: 0.5rem;
         }
         
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #2F5233, #00A86B);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 0 auto 1rem auto;
-        }
-        
-        .step-title {
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #2F5233;
-        }
-        
-        .step-description {
-            color: #666;
-            font-size: 0.9rem;
+        .case-gallery .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         /* Solar Insights */
@@ -362,32 +290,6 @@
         .insight-title {
             font-weight: 700;
             margin-bottom: 1rem;
-        }
-        
-        /* Portfolio Gallery */
-        .portfolio-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .gallery-item {
-            aspect-ratio: 1;
-            background: #f8f9fa;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.9rem;
-            border: 2px dashed #ddd;
-            transition: all 0.3s ease;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
         /* Contact */
@@ -426,25 +328,21 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
             .case-studies {
                 grid-template-columns: 1fr;
             }
             
-            .capabilities {
-                grid-template-columns: 1fr;
-            }
-            
-            .process-steps {
+            .insight-grid {
                 grid-template-columns: 1fr;
             }
             
             .contact-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .case-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             }
         }
         
@@ -475,13 +373,6 @@
     <nav class="nav">
         <div class="nav-content">
             <a href="#hero" class="nav-logo">Juan Reyes Barrios</a>
-            <ul class="nav-links">
-                <li><a href="#cases">Casos</a></li>
-                <li><a href="#capabilities">Habilidades</a></li>
-                <li><a href="#methodology">Proceso</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
         </div>
     </nav>
 
@@ -496,8 +387,7 @@
 
     <!-- Case Studies -->
     <section id="cases" class="section">
-        <h2 class="section-title">Core Content Showcase</h2>
-        <p class="section-subtitle">Casos que demuestran mi capacidad para crear content que educa y genera resultados medibles</p>
+        <p class="section-subtitle">Creación de contenido y resultados obtenidos</p>
         
         <div class="case-studies">
             <!-- Caso 1: Educational Content -->
@@ -517,6 +407,22 @@
                 </div>
                 <div class="case-relevance">
                     <strong>Relevancia para Ruuf:</strong> Same challenge - hacer solar accesible y comprensible para chilenos que no conocen la tecnología.
+                </div>
+                
+                <!-- Portfolio samples for this case -->
+                <div class="case-portfolio">
+                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Muestras de contenido:</h4>
+                    <div class="case-gallery">
+                        <div class="gallery-item">
+                            [Carrusel educativo UNICEF]
+                        </div>
+                        <div class="gallery-item">
+                            [Infografía datos complejos]
+                        </div>
+                        <div class="gallery-item">
+                            [Post educativo IG]
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -538,6 +444,22 @@
                 <div class="case-relevance">
                     <strong>Relevancia para Ruuf:</strong> Perfect para first marketing hire que necesita build content operations from scratch con maximum efficiency.
                 </div>
+                
+                <!-- Portfolio samples for this case -->
+                <div class="case-portfolio">
+                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Muestras de contenido:</h4>
+                    <div class="case-gallery">
+                        <div class="gallery-item">
+                            [Templates diseñados]
+                        </div>
+                        <div class="gallery-item">
+                            [Workflow optimizado]
+                        </div>
+                        <div class="gallery-item">
+                            [Sistema de brandbook]
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Caso 3: Cross-Platform Content -->
@@ -558,105 +480,21 @@
                 <div class="case-relevance">
                     <strong>Relevancia para Ruuf:</strong> Versatility que startup necesita - un content creator que maneja todos los formatos y plataformas.
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Capabilities Matrix -->
-    <section id="capabilities" class="section">
-        <h2 class="section-title">Content Capabilities Matrix</h2>
-        <p class="section-subtitle">Skills específicas que bring al content marketing de Ruuf</p>
-        
-        <div class="capabilities">
-            <div class="capability-card">
-                <div class="capability-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3 class="capability-title">Content Strategy & Planning</h3>
-                <ul class="capability-list">
-                    <li>Editorial calendars y content workflows</li>
-                    <li>Brand narrative development</li>
-                    <li>Educational content frameworks</li>
-                    <li>Content pillar strategy</li>
-                </ul>
-            </div>
-
-            <div class="capability-card">
-                <div class="capability-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3 class="capability-title">Visual Content Production</h3>
-                <ul class="capability-list">
-                    <li>Social assets (posts, stories, reels)</li>
-                    <li>Infographics & data visualization</li>
-                    <li>Video editing & motion graphics</li>
-                    <li>Photography & image editing</li>
-                </ul>
-            </div>
-
-            <div class="capability-card">
-                <div class="capability-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="capability-title">Performance-Informed Content</h3>
-                <ul class="capability-list">
-                    <li>A/B testing para content optimization</li>
-                    <li>Analytics-driven content decisions</li>
-                    <li>Budget management ($30K+ campaigns)</li>
-                    <li>ROI measurement y reporting</li>
-                </ul>
-            </div>
-
-            <div class="capability-card">
-                <div class="capability-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3 class="capability-title">AI-Enhanced Workflows</h3>
-                <ul class="capability-list">
-                    <li>AI-assisted content creation</li>
-                    <li>Automation tools y integrations</li>
-                    <li>Efficiency optimization</li>
-                    <li>Future-forward content strategies</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Methodology -->
-    <section id="methodology" class="section">
-        <div class="methodology">
-            <h2 class="section-title" style="color: #2F5233;">Mi Content Framework</h2>
-            <p class="section-subtitle" style="color: #666;">EDUCATE → ENGAGE → CONVERT</p>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h4 class="step-title">Research</h4>
-                    <p class="step-description">Market + audience + competitors analysis</p>
-                </div>
                 
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h4 class="step-title">Strategy</h4>
-                    <p class="step-description">Content pillars + distribution plan</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h4 class="step-title">Create</h4>
-                    <p class="step-description">Multi-format asset production</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h4 class="step-title">Optimize</h4>
-                    <p class="step-description">Performance data + iteration</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h4 class="step-title">Scale</h4>
-                    <p class="step-description">Systems + templates + automation</p>
+                <!-- Portfolio samples for this case -->
+                <div class="case-portfolio">
+                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Muestras de contenido:</h4>
+                    <div class="case-gallery">
+                        <div class="gallery-item">
+                            [Reels educativos]
+                        </div>
+                        <div class="gallery-item">
+                            [Stories interactivas]
+                        </div>
+                        <div class="gallery-item">
+                            [Campaña multi-canal]
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -666,58 +504,29 @@
     <section class="section">
         <div class="solar-insights">
             <h2 class="section-title" style="color: white;">Por qué soy perfect fit para Ruuf</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Understanding del mercado solar + content expertise = ventaja competitiva</p>
             
             <div class="insight-grid">
                 <div class="insight-card">
-                    <h4 class="insight-title">Solar Market Education Need</h4>
-                    <p>Chilean solar adoption requires massive market education - exactly mi specialty en converting complex topics into accessible content.</p>
+                    <h4 class="insight-title">Foco en creatividad y producción rápida</h4>
+                    <p>Tengo experiencia y preparación para generar mensajes que acerquen temas complejos en contenido accesible, utilizando diversas herramientas digitales en formatos ad-hoc, sin perder de vista la funcionalidad y carácter narrativo.</p>
                 </div>
                 
                 <div class="insight-card">
-                    <h4 class="insight-title">First Marketing Hire Advantage</h4>
-                    <p>Experience building content systems from scratch + resource optimization = perfect para establishing Ruuf's content foundation.</p>
+                    <h4 class="insight-title">Experiencia en comunicaciones</h4>
+                    <p>Monitoreo panoramas, buscando la forma de relacionar la marca con actores institucionales, de la industria y de medios para aumentar el posicionamiento en tópicos de interés masivo. De la misma forma genero instancias para fortalecer a las comunidades orgánicas.</p>
                 </div>
                 
                 <div class="insight-card">
-                    <h4 class="insight-title">Startup-Ready Mindset</h4>
-                    <p>Track record de rapid iteration, efficiency optimization, y building sustainable systems during high-growth phases.</p>
+                    <h4 class="insight-title">Mindset sistémico</h4>
+                    <p>Además de implementar campañas, realizar las mediciones correspondientes o llevar un registro de las acciones, estoy familiarizado con principios de diseño de interacción y experiencias. Este componente podría significar para Ruuf generar o adaptar la estrategia de marketing y comunicaciones para que forme parte del sistema de diseño o de gestión que ya existe con mayor fluidez.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Gallery -->
-    <section id="portfolio" class="section">
-        <h2 class="section-title">Content Portfolio</h2>
-        <p class="section-subtitle">Muestra de diferentes tipos de content assets creados</p>
-        
-        <div class="portfolio-gallery">
-            <div class="gallery-item">
-                [AGREGAR: Mejores posts de Instagram]
-            </div>
-            <div class="gallery-item">
-                [AGREGAR: Carruseles educativos]
-            </div>
-            <div class="gallery-item">
-                [AGREGAR: Reels/Videos]
-            </div>
-            <div class="gallery-item">
-                [AGREGAR: Infografías]
-            </div>
-            <div class="gallery-item">
-                [AGREGAR: Campañas completas]
-            </div>
-            <div class="gallery-item">
-                [AGREGAR: Brand systems]
             </div>
         </div>
     </section>
 
     <!-- Contact -->
     <section id="contact" class="contact">
-        <h2 class="section-title" style="color: white;">¿Listo para conversar?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Construyamos juntos el content strategy que necesita Ruuf para educar el mercado solar chileno</p>
+        <h2 class="section-title" style="color: white;">Conversemos</h2>
         
         <div class="contact-buttons">
             <a href="mailto:jcreyes1@uc.cl" class="contact-btn">
@@ -728,9 +537,6 @@
             </a>
             <a href="tel:+56920323788" class="contact-btn">
                 <i class="fas fa-phone"></i> WhatsApp
-            </a>
-            <a href="#" class="contact-btn">
-                <i class="fas fa-calendar"></i> Agendar Meeting
             </a>
         </div>
     </section>
@@ -774,8 +580,8 @@
             });
         }, observerOptions);
 
-        // Observe all case cards and capability cards
-        document.querySelectorAll('.case-card, .capability-card').forEach(card => {
+        // Observe all case cards
+        document.querySelectorAll('.case-card').forEach(card => {
             observer.observe(card);
         });
     </script>
