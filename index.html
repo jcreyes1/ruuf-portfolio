@@ -247,21 +247,85 @@
             aspect-ratio: 1;
             background: #f8f9fa;
             border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        
+        .case-gallery .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .case-gallery .gallery-item.placeholder {
             color: #999;
             font-size: 0.8rem;
             border: 2px dashed #ddd;
-            transition: all 0.3s ease;
             text-align: center;
             padding: 0.5rem;
+            background: #f8f9fa;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(47, 82, 51, 0.9), rgba(0, 168, 107, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            z-index: 2;
+        }
+        
+        .case-gallery .gallery-item:hover .gallery-overlay {
+            opacity: 1;
         }
         
         .case-gallery .gallery-item:hover {
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
+        
+        .gallery-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .gallery-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .gallery-link i {
+            font-size: 0.8rem;
+        }
+        
         
         /* Perfect Fit Section */
         .perfect-fit {
@@ -397,7 +461,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-content">
-            <h1>Hola, soy Juan.<br>y les presento mi trabajo</h1>
+            <h1>Hola, soy Juan y les presento mi trabajo</h1>
             <p class="subtitle">Llevo más de 8 años creando contenidos</p>
             <a href="#cases" class="cta"><i class="fas fa-arrow-down"></i></a>
         </div>
@@ -432,7 +496,7 @@
                         <div class="gallery-item">
                             <img src="img/papa-todos-los.jpg" alt="Campaña sobre paternidad">
                             <div class="gallery-overlay">
-                                <a href="https://instagram.com/p/TU_POST_REAL" target="_blank" class="gallery-link">
+                                <a href="https://www.unicef.org/chile/papá-todos-los-días" target="_blank" class="gallery-link">
                                     <i class="fab fa-instagram"></i> Ver en UNICEF.ORG
                                 </a>
                             </div>
