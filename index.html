@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Reyes Barrios - Content Marketing Specialist | Ruuf Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -187,7 +187,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px dashed #ddd;
         }
         
         .case-image img {
@@ -465,6 +464,28 @@
         html {
             scroll-behavior: smooth;
         }
+        .serif-quote {
+            font-family: 'Lora', 'Georgia', serif;
+            font-weight: 400;
+            font-style: italic;
+            color: #2F5233;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .serif-emphasis {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            color: #00A86B;
+        }
+
+        .serif-highlight {
+            font-family: 'Lora', serif;
+            font-weight: 500;
+            color: #2F5233;
+            border-bottom: 2px solid #00A86B;
+            padding-bottom: 1px;
+        }
     </style>
 </head>
 <body>
@@ -478,7 +499,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-content">
-            <h1>Hola, soy Juan y les presento mi trabajo</h1>
+            <h1>Hola, soy <span class="serif-highlight">Juan</span> y les presento mi trabajo</h1>
             <p class="subtitle">Llevo más de 8 años creando contenidos</p>
             <a href="#cases" class="cta"><i class="fas fa-arrow-down"></i></a>
         </div>
@@ -615,7 +636,7 @@
     <!-- Perfect Fit Section -->
     <section class="section">
         <div class="perfect-fit">
-            <h2 class="section-title">Por qué soy perfect fit para Ruuf</h2>
+            <h2 class="section-title">Por qué soy <span class="serif-emphasis">perfect fit</span> para Ruuf</h2>
             
             <div class="fit-content">
                 <div class="fit-paragraph">
