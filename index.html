@@ -285,24 +285,40 @@
         }
         
         .metric {
-            background: var(--bg-light);
+            background: #FFB000; /* Amarillo llamativo que combina con el esquema */
+            color: white;
             padding: var(--space-xs) var(--space-sm);
-            border-radius: 10px;
-            font-size: 0.85rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
             font-weight: 600;
-            color: var(--primary-green);
-            border: 1px solid var(--border-light);
+            border: none;
+            display: inline-block;
+            margin: 0.2rem 0.3rem 0.2rem 0;
+            box-shadow: 0 2px 4px rgba(255, 176, 0, 0.3);
         }
         
         .case-relevance {
             background: linear-gradient(135deg, var(--secondary-green), var(--accent-orange));
             color: white;
-            padding: var(--space-sm);
-            border-radius: 10px;
+            padding: var(--space-md);
+            border-radius: 15px;
             font-size: 0.9rem;
             font-weight: 500;
-            margin-top: var(--space-xs);
+            margin-top: var(--space-md);
             line-height: 1.5;
+        }
+        
+        .case-relevance .metrics-integrated {
+            margin-top: var(--space-sm);
+            padding-top: var(--space-sm);
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .case-relevance .metrics-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            opacity: 0.9;
         }
         
         /* Gallery optimizado */
@@ -757,10 +773,12 @@
                     </div>
                     <div class="case-relevance">
                         <strong>Relevancia para Ruuf:</strong> Tengo la versatilidad para abordar múltiples formatos y plataformas a través de campañas, contenido always-on y abogacía sobre tópicos de interés.
-                    </div>
-                    <div class="case-metrics">
-                        <span class="metric">7M+ alcance máximo</span>
-                        <span class="metric">Producción gráfica y audiovisual multiplataforma</span>
+                        
+                        <div class="metrics-integrated">
+                            <div class="metrics-label">Resultados destacados:</div>
+                            <span class="metric">7M+ alcance máximo</span>
+                            <span class="metric">Producción gráfica y audiovisual multiplataforma</span>
+                        </div>
                     </div>
                 </article>
 
@@ -788,15 +806,16 @@
                             <div class="gallery-item placeholder">
                                 [Sistema de brandbook]
                             </div>
-                        </div>
                     </div>
                     <div class="case-relevance">
                         <strong>Relevancia para Ruuf:</strong> Para una primera contratación de marketing además de llevar a cabo tareas de comunicación, puedo ir construyendo estructuras para sistematizar la identidad de marca y la estrategia de adquisición de clientes.
-                    </div>
-                    <div class="case-metrics">
-                        <span class="metric">Genero ToR de proveedores externos: videístas, fotógrafos, productoras</span>
-                        <span class="metric">Fortalezco la producción in-house: mayor rapidez vs agencias 2W a 3D</span>
-                        <span class="metric">Promociono de campañas en Meta y Google Ads</span>
+                        
+                        <div class="metrics-integrated">
+                            <div class="metrics-label">Capacidades desarrolladas:</div>
+                            <span class="metric">Genero ToR de proveedores externos: videístas, fotógrafos, productoras</span>
+                            <span class="metric">Fortalezco la producción in-house: mayor rapidez vs agencias 2W a 3D</span>
+                            <span class="metric">Promociono de campañas en Meta y Google Ads</span>
+                        </div>
                     </div>
                 </article>
 
@@ -828,11 +847,13 @@
                     </div>
                     <div class="case-relevance">
                         <strong>Relevancia para Ruuf:</strong> Tengo la capacidad de retomar contactos derivados de mi experiencia previa para evaluar colaboraciones. Asimismo me manejo en el sistema de las agencias y relacionamiento como una forma de impulsar la aparición de Ruuf en el boca a boca.
-                    </div>
-                    <div class="case-metrics">
-                        <span class="metric">He contactado con 7 rostros de medios en 2025</span>
-                        <span class="metric">Monitoreo mediante API de noticias y RRSS</span>
-                        <span class="metric">Fomento la participación de colegas en los contenidos</span>
+                        
+                        <div class="metrics-integrated">
+                            <div class="metrics-label">Experiencia en relacionamiento:</div>
+                            <span class="metric">He contactado con 7 rostros de medios en 2025</span>
+                            <span class="metric">Monitoreo mediante API de noticias y RRSS</span>
+                            <span class="metric">Fomento la participación de colegas en los contenidos</span>
+                        </div>
                     </div>
                 </article>
             </div>
