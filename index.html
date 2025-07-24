@@ -184,6 +184,11 @@
             margin: 0 auto;
         }
         
+        /* Reducir separación específica para perfect fit */
+        .section.perfect-fit-section {
+            padding-top: var(--space-lg);
+        }
+        
         .section-title {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
@@ -192,12 +197,20 @@
             color: var(--primary-green);
         }
         
-        /* Case Studies Grid optimizado */
+        /* Case Studies Grid optimizado con distribución masonry */
         .case-studies {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
             gap: var(--space-lg);
-            margin-bottom: var(--space-xl);
+            margin-bottom: var(--space-md); /* Reducido para acercar a perfect fit */
+            align-items: start;
+        }
+        
+        /* Masonry layout usando CSS Grid cuando sea posible */
+        @supports (grid-template-rows: masonry) {
+            .case-studies {
+                grid-template-rows: masonry;
+            }
         }
         
         .case-card {
@@ -218,37 +231,6 @@
         .case-card:focus-within {
             outline: 2px solid var(--secondary-green);
             outline-offset: 2px;
-        }
-        
-        /* Case Images optimizadas */
-        .case-image {
-            width: 100%;
-            height: 200px;
-            background: var(--bg-light);
-            border-radius: 15px;
-            margin-bottom: var(--space-md);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .case-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        
-        .case-image.placeholder {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            background: var(--bg-light);
-            border: 2px dashed #ddd;
         }
         
         /* Typography optimizada */
@@ -447,11 +429,11 @@
         
         /* Perfect Fit Section */
         .perfect-fit {
-            background: var(--bg-white);
+            background: linear-gradient(135deg, #f0f8f2 0%, #e8f5ea 100%);
             border-radius: 15px;
             padding: var(--space-xl) var(--space-lg);
             box-shadow: var(--shadow-light);
-            border: 1px solid var(--border-light);
+            border: 1px solid rgba(47, 82, 51, 0.1);
         }
         
         .fit-content {
@@ -685,9 +667,6 @@
             <div class="case-studies">
                 <!-- Caso 1: Educational Content -->
                 <article class="case-card">
-                    <div class="case-image">
-                        <img src="img/portada1.jpg" alt="Campañas de social marketing">
-                    </div>
                     <div class="case-category">Creación de contenido</div>
                     <h2 class="case-title">Producción de mensajes para múltiples plataformas</h2>
                     <p class="case-description">
@@ -784,9 +763,6 @@
 
                 <!-- Caso 2: Content System Optimization -->
                 <article class="case-card">
-                    <div class="case-image placeholder">
-                        [AGREGAR: Before/After de workflows, templates, procesos]
-                    </div>
                     <div class="case-category">Content System Optimization</div>
                     <h2 class="case-title">Optimización de Sistemas de Producción</h2>
                     <p class="case-description">
@@ -821,9 +797,6 @@
 
                 <!-- Caso 3: Cross-Platform Content -->
                 <article class="case-card">
-                    <div class="case-image placeholder">
-                        [AGREGAR: Grid de diferentes formatos - posts, reels, carruseles, infografías]
-                    </div>
                     <div class="case-category">Comunicación y estrategia</div>
                     <h2 class="case-title">Relacionamiento público</h2>
                     <p class="case-description">
@@ -860,7 +833,7 @@
         </section>
 
         <!-- Perfect Fit Section -->
-        <section class="section" aria-labelledby="perfect-fit-title">
+        <section class="section perfect-fit-section" aria-labelledby="perfect-fit-title">
             <div class="perfect-fit">
                 <h2 id="perfect-fit-title" class="section-title">Por qué soy <span class="serif-emphasis">perfect fit</span> para Ruuf</h2>
                 
@@ -980,6 +953,71 @@
         document.addEventListener('mousedown', function() {
             document.body.classList.remove('using-keyboard');
         });
+        
+        // Masonry layout implementation
+        function initMasonry() {
+            const grid = document.querySelector('.case-studies');
+            const items = Array.from(grid.children);
+            
+            if (window.innerWidth <= 768) {
+                // En mobile, mantener layout simple
+                return;
+            }
+            
+            // Resetear estilos grid
+            grid.style.display = 'block';
+            
+            // Configurar contenedor
+            const containerWidth = grid.offsetWidth;
+            const gap = parseInt(getComputedStyle(grid).gap) || 32;
+            const minItemWidth = 350;
+            const cols = Math.floor((containerWidth + gap) / (minItemWidth + gap));
+            const itemWidth = Math.floor((containerWidth - (gap * (cols - 1))) / cols);
+            
+            // Arrays para tracking de alturas de columnas
+            const colHeights = new Array(cols).fill(0);
+            
+            // Posicionar items
+            items.forEach((item, index) => {
+                item.style.position = 'absolute';
+                item.style.width = `${itemWidth}px`;
+                
+                // Encontrar columna más corta
+                const shortestCol = colHeights.indexOf(Math.min(...colHeights));
+                const x = shortestCol * (itemWidth + gap);
+                const y = colHeights[shortestCol];
+                
+                item.style.left = `${x}px`;
+                item.style.top = `${y}px`;
+                
+                // Actualizar altura de la columna
+                setTimeout(() => {
+                    colHeights[shortestCol] += item.offsetHeight + gap;
+                    
+                    // Actualizar altura del contenedor
+                    if (index === items.length - 1) {
+                        grid.style.height = `${Math.max(...colHeights)}px`;
+                        grid.style.position = 'relative';
+                    }
+                }, 10);
+            });
+        }
+        
+        // Inicializar masonry y re-ejecutar en resize
+        let resizeTimeout;
+        function handleResize() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                initMasonry();
+            }, 250);
+        }
+        
+        // Ejecutar cuando las imágenes estén cargadas
+        window.addEventListener('load', initMasonry);
+        window.addEventListener('resize', handleResize);
+        
+        // También ejecutar después de que las animaciones terminen
+        setTimeout(initMasonry, 1000);
     </script>
 </body>
 </html>
