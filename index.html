@@ -4,9 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juan Reyes Barrios - Content Marketing Specialist | Ruuf Portfolio</title>
+    <meta name="description" content="Content Marketing Specialist con 8+ años de experiencia creando contenidos educativos para organizaciones como UNICEF. Portfolio para Ruuf.">
+    
+    <!-- Fonts optimizados -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&family=Merriweather:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <style>
+        :root {
+            /* Color System */
+            --primary-green: #2F5233;
+            --secondary-green: #00A86B;
+            --accent-orange: #F7931E;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --text-light: #999;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #f0f0f0;
+            --shadow-light: 0 5px 20px rgba(0,0,0,0.08);
+            --shadow-medium: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-heavy: 0 20px 60px rgba(0,0,0,0.15);
+            
+            /* Typography */
+            --font-primary: 'Inter', sans-serif;
+            --font-serif: 'Merriweather', serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-xxl: 4rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -14,17 +53,65 @@
         }
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-primary);
             line-height: 1.6;
-            color: #333;
+            color: var(--text-primary);
             overflow-x: hidden;
-            margin: 0;           
-            padding: 0;  
         }
         
-        /* Hero Section */
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--primary-green);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 1001;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Navigation optimizada */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(47, 82, 51, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--space-sm) 0;
+            transition: transform var(--transition-medium);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        .nav-logo:focus {
+            outline: 2px solid var(--accent-orange);
+            outline-offset: 2px;
+        }
+        
+        /* Hero Section optimizado */
         .hero {
-            background: linear-gradient(135deg, #2F5233 0%, #00A86B 50%, #F7931E 100%);
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 50%, var(--accent-orange) 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -33,9 +120,6 @@
             color: white;
             position: relative;
             overflow: hidden;
-            width: 100%;          
-            margin: 0;
-
         }
         
         .hero::before {
@@ -51,7 +135,7 @@
         
         .hero-content {
             max-width: 800px;
-            padding: 2rem;
+            padding: var(--space-lg);
             position: relative;
             z-index: 2;
         }
@@ -59,144 +143,90 @@
         .hero h1 {
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-sm);
             line-height: 1.2;
         }
         
         .hero .subtitle {
             font-size: clamp(1.1rem, 2.5vw, 1.5rem);
             font-weight: 300;
-            margin-bottom: 2rem;
+            margin-bottom: var(--space-lg);
             opacity: 0.9;
         }
         
         .hero .cta {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: rgba(255,255,255,0.2);
-            padding: 1rem 2rem;
+            padding: var(--space-sm) var(--space-lg);
             border-radius: 50px;
             text-decoration: none;
             color: white;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all var(--transition-medium);
             border: 2px solid rgba(255,255,255,0.3);
+            min-width: 44px;
+            min-height: 44px;
         }
         
-        .hero .cta:hover {
+        .hero .cta:hover,
+        .hero .cta:focus {
             background: rgba(255,255,255,0.3);
             transform: translateY(-2px);
+            outline: none;
         }
         
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(47, 82, 51, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-logo {
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: #F7931E;
-        }
-        
-        /* Sections */
+        /* Sections optimizadas */
         .section {
-            padding: 5rem clamp(1.5rem, 5vw, 4rem);
+            padding: var(--space-xxl) clamp(1.5rem, 5vw, 4rem);
             max-width: min(1400px, calc(100vw - 2rem));
             margin: 0 auto;
         }
+        
         .section-title {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
             text-align: center;
-            margin-bottom: 3rem;
-            color: #2F5233;
+            margin-bottom: var(--space-xl);
+            color: var(--primary-green);
         }
         
-        .section-subtitle {
-            font-size: 1.2rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: #666;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Case Studies */
-
-
+        /* Case Studies Grid optimizado */
         .case-studies {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
         }
-
-        @media (max-width: 1100px) and (min-width: 769px) {
-            .case-studies {
-                gap: 1.5rem;  /* Menos gap en ventanas medianas */
-            }
-        }
-        @media (max-width: 950px) and (min-width: 769px) {
-            .case-studies {
-                grid-template-columns: repeat(2, 1fr);  /* 2 cards antes del mobile */
-            }
-        }
-
+        
         .case-card {
-            background: white;
+            background: var(--bg-white);
             border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-medium);
+            transition: all var(--transition-medium);
+            border: 1px solid var(--border-light);
+            height: fit-content;
         }
         
         .case-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-heavy);
         }
         
+        .case-card:focus-within {
+            outline: 2px solid var(--secondary-green);
+            outline-offset: 2px;
+        }
+        
+        /* Case Images optimizadas */
         .case-image {
             width: 100%;
             height: 200px;
-            background: #f8f9fa;
+            background: var(--bg-light);
             border-radius: 15px;
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-md);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -215,81 +245,88 @@
         }
         
         .case-image.placeholder {
-            color: #999;
+            color: var(--text-light);
             font-size: 0.9rem;
-            background: #f8f9fa;
+            background: var(--bg-light);
             border: 2px dashed #ddd;
         }
         
+        /* Typography optimizada */
         .case-category {
-            color: #00A86B;
+            color: var(--secondary-green);
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.8rem;
             letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+            margin-bottom: var(--space-xs);
         }
         
         .case-title {
             font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: #2F5233;
+            margin-bottom: var(--space-sm);
+            color: var(--primary-green);
+            line-height: 1.3;
         }
         
         .case-description {
-            color: #666;
-            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
         }
         
+        /* Metrics optimizados */
         .case-metrics {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-md);
+            margin-top: var(--space-xs); /* Separación de relevance */
         }
         
         .metric {
-            background: #f8f9fa;
-            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            padding: var(--space-xs) var(--space-sm);
             border-radius: 10px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            color: #2F5233;
+            color: var(--primary-green);
+            border: 1px solid var(--border-light);
         }
         
         .case-relevance {
-            background: linear-gradient(135deg, #00A86B, #F7931E);
+            background: linear-gradient(135deg, var(--secondary-green), var(--accent-orange));
             color: white;
-            padding: 1rem;
+            padding: var(--space-sm);
             border-radius: 10px;
             font-size: 0.9rem;
             font-weight: 500;
-            margin-top: 0.5rem;
-
+            margin-top: var(--space-xs);
+            line-height: 1.5;
         }
         
-        /* Case Gallery */
-         .case-gallery {
+        /* Gallery optimizado */
+        .case-gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.8rem;
-            margin-top: 0.5rem;
+            gap: var(--space-xs);
+            margin-top: var(--space-xs);
         }
         
-        .case-gallery .gallery-item {
-            aspect-ratio: 10/16;
-            background: #f8f9fa;
+        .gallery-item {
+            aspect-ratio: 10/16; /* Proporción vertical como solicitado */
+            background: var(--bg-light);
             border-radius: 10px;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all var(--transition-medium);
             cursor: pointer;
             display: flex;
             align-items: flex-end;
             justify-content: flex-start;
         }
         
-        .case-gallery .gallery-item img {
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -297,21 +334,42 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 1; 
-
+            z-index: 1;
         }
         
-        .case-gallery .gallery-item.placeholder {
-            color: #999;
-            font-size: 0.8rem;
+        .gallery-item.placeholder {
+            color: var(--text-light);
+            font-size: 0.75rem;
             border: 2px dashed #ddd;
             text-align: center;
-            padding: 0.5rem;
-            background: #f8f9fa;
+            padding: var(--space-xs);
+            background: var(--bg-light);
             align-items: center;
             justify-content: center;
-
-
+        }
+        
+        /* Overlay system optimizado */
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            z-index: 2;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .gallery-description {
+            position: relative;
+            z-index: 3;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: var(--space-xs);
+            line-height: 1.3;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         
         .gallery-overlay {
@@ -325,83 +383,59 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all var(--transition-medium);
             border-radius: 10px;
             z-index: 4;
         }
         
-        .case-gallery .gallery-item::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        right: 0;
-            height: 60%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            z-index: 2;
-            border-radius: 0 0 10px 10px;
-        }
-
-        .gallery-description {
-            position: relative;
-            z-index: 3;
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 500;
-            padding: 1rem;
-            line-height: 1.3;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .case-gallery .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-
-        .case-gallery .gallery-item:hover .gallery-overlay {
+        .gallery-item:hover .gallery-overlay,
+        .gallery-item:focus-within .gallery-overlay {
             opacity: 1;
         }
         
-        .case-gallery .gallery-item:hover {
+        .gallery-item:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-light);
         }
         
         .gallery-link {
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
             background: rgba(255,255,255,0.2);
             border-radius: 25px;
             backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
+            transition: all var(--transition-medium);
             border: 1px solid rgba(255,255,255,0.3);
+            min-width: 44px;
+            min-height: 44px;
         }
         
-        .gallery-link:hover {
+        .gallery-link:hover,
+        .gallery-link:focus {
             background: rgba(255,255,255,0.3);
             transform: translateY(-2px);
             color: white;
+            outline: 2px solid white;
+            outline-offset: 2px;
         }
         
         .gallery-link i {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
-        
         
         /* Perfect Fit Section */
         .perfect-fit {
-            background: white;
+            background: var(--bg-white);
             border-radius: 15px;
-            padding: 3rem 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid #f0f0f0;
+            padding: var(--space-xl) var(--space-lg);
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--border-light);
         }
         
         .fit-content {
@@ -410,7 +444,7 @@
         }
         
         .fit-paragraph {
-            margin-bottom: 2.5rem;
+            margin-bottom: var(--space-xl);
             text-align: left;
         }
         
@@ -421,84 +455,104 @@
         .fit-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #2F5233;
-            margin-bottom: 1rem;
+            color: var(--primary-green);
+            margin-bottom: var(--space-sm);
         }
         
         .fit-paragraph p {
             font-size: 1rem;
             line-height: 1.6;
-            color: #444;
+            color: var(--text-primary);
         }
         
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #2F5233, #00A86B);
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
             color: white;
-            padding: 4rem 2rem;
+            padding: var(--space-xxl) var(--space-lg);
             border-radius: 20px;
-            margin: 3rem 0;
+            margin: var(--space-xl) 0;
             text-align: center;
         }
         
-        /* Contact */
+        /* Contact buttons optimizados */
         .contact-buttons {
             display: flex;
-            gap: 1rem;
+            gap: var(--space-sm);
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: var(--space-lg);
         }
         
         .contact-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: #00A86B;
+            gap: var(--space-xs);
+            background: var(--secondary-green);
             color: white;
-            padding: 1rem 2rem;
+            padding: var(--space-sm) var(--space-lg);
             border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all var(--transition-medium);
+            min-width: 44px;
+            min-height: 44px;
         }
         
-        .contact-btn:hover {
-            background: #F7931E;
+        .contact-btn:hover,
+        .contact-btn:focus {
+            background: var(--accent-orange);
             transform: translateY(-2px);
+            outline: 2px solid white;
+            outline-offset: 2px;
         }
         
-        /* Responsive */
+        /* Typography classes */
+        .serif-emphasis {
+            font-family: 'Merriweather', serif;
+            font-weight: 600;
+            color: var(--secondary-green);
+        }
+        
+        .serif-emphasisw {
+            font-family: 'Merriweather', serif;
+            font-weight: 600;
+            color: white;
+        }
+        
+        /* Responsive optimizado */
         @media (max-width: 1024px) {
             .case-studies {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            }
+            
+            .gallery-item {
+                aspect-ratio: 10/16; /* Mantener proporción vertical */
             }
         }
-
+        
         @media (max-width: 768px) {
-           .section {
-                padding: 3rem 1.5rem; 
+            .section {
+                padding: var(--space-xl) var(--space-md);
             }
+            
             .case-studies {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: var(--space-md);
             }
-    
+            
             .case-gallery {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 0.6rem;
+                gap: var(--space-xs);
             }
+            
             .contact-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .case-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            }
-            
             .perfect-fit {
-                padding: 2rem 1.5rem;
+                padding: var(--space-lg) var(--space-md);
             }
             
             .fit-title {
@@ -506,11 +560,37 @@
             }
             
             .cta-section {
-                padding: 3rem 1.5rem;
+                padding: var(--space-xl) var(--space-md);
+            }
+            
+            .gallery-description {
+                font-size: 0.7rem;
+                padding: var(--space-xs);
+            }
+            
+            .gallery-link {
+                font-size: 0.75rem;
+                padding: var(--space-xs);
             }
         }
         
-        /* Animations */
+        @media (max-width: 480px) {
+            .case-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                aspect-ratio: 10/16; /* Mantener proporción vertical en mobile */
+            }
+        }
+        
+        /* Focus management */
+        .focus-visible {
+            outline: 2px solid var(--secondary-green);
+            outline-offset: 2px;
+        }
+        
+        /* Animations optimizadas */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -530,266 +610,278 @@
         html {
             scroll-behavior: smooth;
         }
-        .serif-quote {
-            font-family: 'Lora', 'Georgia', serif;
-            font-weight: 400;
-            font-style: italic;
-            color: #2F5233;
-            font-size: 1.05em;
-            line-height: 1.5;
-        }
-
-        .serif-emphasis {
-            font-family: 'Merriweather', serif;
-            font-weight: 600;
-            color: #00A86B;
         
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
         }
         
-         .serif-emphasisw {
-            font-family: 'Merriweather', serif;
-            font-weight: 600;
-            color: #ffffff;
-        
+        /* Print styles */
+        @media print {
+            .nav, .contact-buttons, .gallery-overlay {
+                display: none;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: var(--space-lg);
+            }
+            
+            .case-card {
+                break-inside: avoid;
+                margin-bottom: var(--space-lg);
+            }
         }
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="nav-content">
-            <a href="#hero" class="nav-logo">Juan Reyes Barrios</a>
+            <a href="#hero" class="nav-logo" aria-label="Juan Reyes Barrios - Ir al inicio">Juan Reyes Barrios</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <header id="hero" class="hero">
         <div class="hero-content">
             <h1><span class="serif-emphasisw">Hola, soy Juan y les presento mi trabajo</span></h1>
             <p class="subtitle">Llevo más de 8 años creando contenidos</p>
-            <a href="#cases" class="cta"><i class="fas fa-arrow-down"></i></a>
+            <a href="#main-content" class="cta" aria-label="Ver mi trabajo">
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
+            </a>
         </div>
-    </section>
+    </header>
 
-    <!-- Case Studies -->
-    <section id="cases" class="section">
-        <div class="case-studies">
-            <!-- Caso 1: Educational Content -->
-            <div class="case-card">
-                <div class="case-image">
-                    <img src="img/portada1.jpg" alt="Campañas de social marketing">
-                </div>
-                <div class="case-category">Creación de contenido</div>
-                <h3 class="case-title">Producción de mensajes para múltiples plataformas</h3>
-                <p class="case-description">
-                    Adapto información y mensajes clave para una organizacion sobre temas complejos en contenido atractivo y ajustado a particularidades de una determinada audiencia.
-                </p>
-               
-                <!-- Portfolio samples for this case -->
-                <div class="case-portfolio">
-                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Ejemplo 1<br><span class=serif-emphasis>Adaptación de campaña a diversos formatos</span></h4>
-                    <div class="case-gallery">
-                        <div class="gallery-item">
-                            <img src="img/espacio-digital1.png" alt="Campaña sobre uso seguro de internet"">
-                            <div class="gallery-description">
-                                Construcción de relato verbal y audiovisual.
-                            </div>
-                            <div class="gallery-overlay">
-                                <a href="https://www.unicef.org/chile/papá-todos-los-días" target="_blank" class="gallery-link">
-                                    <i class="fab fa-instagram"></i> Ver en Instagram
-                                </a>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="img/espacio-digital2.png" alt="Campaña sobre uso seguro de internet">
-                            <div class="gallery-description">
-                                Adaptación de información compleja a guías descargables.
-                            </div>
-                            <div class="gallery-overlay">
-                                <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link">
-                                    <i class="fas fa-external-link-alt"></i> Ver en UNICEF.org
-                                </a>
-                            </div>
-                        </div>
-                         <div class="gallery-item">
-                            <img src="img/espacio-digital3.png" alt="Campaña sobre uso seguro de internet">
-                            <div class="gallery-description">
-                                Optimización de contenido para generar leads
-                            </div>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Case Studies -->
+        <section id="cases" class="section" aria-labelledby="cases-title">
+            <div class="case-studies">
+                <!-- Caso 1: Educational Content -->
+                <article class="case-card">
+                    <div class="case-image">
+                        <img src="img/portada1.jpg" alt="Campañas de social marketing">
+                    </div>
+                    <div class="case-category">Creación de contenido</div>
+                    <h2 class="case-title">Producción de mensajes para múltiples plataformas</h2>
+                    <p class="case-description">
+                        Adapto información y mensajes clave para una organización sobre temas complejos en contenido atractivo y ajustado a particularidades de una determinada audiencia.
+                    </p>
+                   
+                    <!-- Portfolio samples for this case -->
+                    <div class="case-portfolio">
+                        <h3 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Ejemplo 1<br><span class="serif-emphasis">Adaptación de campaña a diversos formatos</span></h3>
+                        <div class="case-gallery" role="group" aria-label="Ejemplos de adaptación de campaña">
+                            <div class="gallery-item">
+                                <img src="img/espacio-digital1.png" alt="Campaña sobre uso seguro de internet">
+                                <div class="gallery-description">
+                                    Construcción de relato verbal y audiovisual.
+                                </div>
                                 <div class="gallery-overlay">
-                                <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link">
-                                    <i class="fas fa-file-image"></i> Ver recursos
-                                </a>
+                                    <a href="https://www.unicef.org/chile/papá-todos-los-días" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="img/espacio-digital2.png" alt="Campaña sobre uso seguro de internet">
+                                <div class="gallery-description">
+                                    Adaptación de información compleja a guías descargables.
+                                </div>
+                                <div class="gallery-overlay">
+                                    <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en UNICEF.org
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="img/espacio-digital3.png" alt="Campaña sobre uso seguro de internet">
+                                <div class="gallery-description">
+                                    Optimización de contenido para generar leads
+                                </div>
+                                <div class="gallery-overlay">
+                                    <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fas fa-file-image" aria-hidden="true"></i> Ver recursos
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="case-portfolio">
-                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Ejemplo 2<br><span class=serif-emphasis>Contenido destacado</span></h4>
-                    <div class="case-gallery">
-                        <div class="gallery-item">
-                            <img src="img/papa-todos-los.jpg" alt="Campaña sobre paternidad">
-                            <div class="gallery-description">
-                                Narración verbal y audiovisual para landing.
+                        <h3 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Ejemplo 2<br><span class="serif-emphasis">Contenido destacado</span></h3>
+                        <div class="case-gallery" role="group" aria-label="Ejemplos de contenido destacado">
+                            <div class="gallery-item">
+                                <img src="img/papa-todos-los.jpg" alt="Campaña sobre paternidad">
+                                <div class="gallery-description">
+                                    Narración verbal y audiovisual para landing.
+                                </div>
+                                <div class="gallery-overlay">
+                                    <a href="https://www.unicef.org/chile/papá-todos-los-días" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en UNICEF.org
+                                    </a>
+                                </div>
                             </div>
-                            <div class="gallery-overlay">
-                                <a href="https://www.unicef.org/chile/papá-todos-los-días" target="_blank" class="gallery-link">
-                                    <i class="fas fa-external-link-alt"></i> Ver en UNICEF.org
-                                </a>
+                            <div class="gallery-item">
+                                <img src="img/portada-carrusel.jpg" alt="Carrusel de instagram">
+                                <div class="gallery-description">
+                                    Contenido diverso para Instagram
+                                </div>
+                                <div class="gallery-overlay">
+                                    <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en UNICEF.org
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="img/portada-carrusel.jpg" alt="Carrusel de instagram">
-                            <div class="gallery-description">
-                                Contenido diverso para Instagram
-                            </div>
-                            <div class="gallery-overlay">
-                                <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link">
-                                    <i class="fas fa-external-link-alt"></i> Ver en UNICEF.org
-                                </a>
-                            </div>
-                        </div>
-                         <div class="gallery-item">
-                            <img src="img/mailing.png" alt="Campaña sobre autocuidado durante la pandemia">
-                            <div class="gallery-description">
-                                Contenido para email marketing realizado en Mailchimp y Mailjet
-                            </div>
-                            <div class="gallery-overlay">
-                                <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link">
-                                    <i class="fab fa-instagram"></i> Ver en Instagram
-                                </a>
+                            <div class="gallery-item">
+                                <img src="img/mailing.png" alt="Campaña sobre autocuidado durante la pandemia">
+                                <div class="gallery-description">
+                                    Contenido para email marketing realizado en Mailchimp y Mailjet
+                                </div>
+                                <div class="gallery-overlay">
+                                    <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                 <div class="case-metrics">
-                    <span class="metric">7M+ alcance máximo</span>
-                    <span class="metric">Producción gráfica y audiovisual multiplataforma</span>
-                 </div>
                     <div class="case-relevance">
-                    <strong>Relevancia para Ruuf:</strong> Tengo la versatilidad para abordar múltiples formatos y plataformas a través de campañas, contenido always-on y abogacía sobre tópicos de interés.
-                    </div>
-                </div>
-
-
-            <!-- Caso 2: Content System Optimization -->
-            <div class="case-card">
-                <div class="case-image">
-                    [AGREGAR: Before/After de workflows, templates, procesos]
-                </div>
-                <div class="case-category">Content System Optimization</div>
-                <h3 class="case-title">Optimización de Sistemas de Producción</h3>
-                <p class="case-description">
-                    Implemento workflows para internalizar las labores de producción visual y performance marketing con foco en reconocimiento y consideración.
-                </p>
-                
-                <!-- Portfolio samples for this case -->
-                <div class="case-portfolio">
-                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Muestras de contenido:</h4>
-                    <div class="case-gallery">
-                        <div class="gallery-item">
-                            [Templates diseñados]
-                        </div>
-                        <div class="gallery-item">
-                            [Workflow optimizado]
-                        </div>
-                        <div class="gallery-item">
-                            [Sistema de brandbook]
-                        </div>
+                        <strong>Relevancia para Ruuf:</strong> Tengo la versatilidad para abordar múltiples formatos y plataformas a través de campañas, contenido always-on y abogacía sobre tópicos de interés.
                     </div>
                     <div class="case-metrics">
-                            <span class="metric">Genero ToR de proveedores externos: videístas, fotógrafos, productoras</span>
-                            <span class="metric">Fortalezco la producción in-house: mayor rapidez vs agencias 2W a 3D</span>
-                            <span class="metric">Promociono de campañas en Meta y Google Ads</span>
+                        <span class="metric">7M+ alcance máximo</span>
+                        <span class="metric">Producción gráfica y audiovisual multiplataforma</span>
                     </div>
-                <div class="case-relevance">
-                    <strong>Relevancia para Ruuf:</strong> Para una primera contratación de marketing además de llevar a cabo tareas de comunicación, puedo ir construyendo estructuras para sistematizar la identidad de marca y la estrategia de adquisición de clientes.
-                </div>
+                </article>
 
-                </div>
-            </div>
-
-            <!-- Caso 3: Cross-Platform Content -->
-            <div class="case-card">
-                <div class="case-image">
-                    [AGREGAR: Grid de diferentes formatos - posts, reels, carruseles, infografías]
-                </div>
-                <div class="case-category">Comunicación y estrategia</div>
-                <h3 class="case-title">Relacionamiento público</h3>
-                <p class="case-description">
-                    Perfilo voces y rostros internos, asimismo realizo colaboraciones con rostros mediaticos de acuerdo a la necesidad de la marca.
-                </p>
-                <div class="case-metrics">
-                    <span class="metric">He contactado con 7 rostros de medios en 2025</span>
-                    <span class="metric">Monitoreo mediante API de noticias y RRSS</span>
-                    <span class="metric">Fomento la participación de colegas en los contenidos</span>
-                </div>
-                <div class="case-relevance">
-                    <strong>Relevancia para Ruuf:</strong> Tengo la capacidad de retomar contactos derivados de mi experiencia previa para evaluar colaboraciones. Asimismo me manejo en el sistema de las agencias y relacionamiento como una forma de impulsar la aparición de Ruuf en el boca a boca.
-                </div>
-                
-                <!-- Portfolio samples for this case -->
-                <div class="case-portfolio">
-                    <h4 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Muestras de contenido:</h4>
-                    <div class="case-gallery">
-                        <div class="gallery-item">
-                            [Reels educativos]
-                        </div>
-                        <div class="gallery-item">
-                            [Stories interactivas]
-                        </div>
-                        <div class="gallery-item">
-                            [Campaña multi-canal]
+                <!-- Caso 2: Content System Optimization -->
+                <article class="case-card">
+                    <div class="case-image placeholder">
+                        [AGREGAR: Before/After de workflows, templates, procesos]
+                    </div>
+                    <div class="case-category">Content System Optimization</div>
+                    <h2 class="case-title">Optimización de Sistemas de Producción</h2>
+                    <p class="case-description">
+                        Implemento workflows para internalizar las labores de producción visual y performance marketing con foco en reconocimiento y consideración.
+                    </p>
+                    
+                    <!-- Portfolio samples for this case -->
+                    <div class="case-portfolio">
+                        <h3 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Muestras de contenido:</h3>
+                        <div class="case-gallery" role="group" aria-label="Ejemplos de sistemas de producción">
+                            <div class="gallery-item placeholder">
+                                [Templates diseñados]
+                            </div>
+                            <div class="gallery-item placeholder">
+                                [Workflow optimizado]
+                            </div>
+                            <div class="gallery-item placeholder">
+                                [Sistema de brandbook]
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="case-relevance">
+                        <strong>Relevancia para Ruuf:</strong> Para una primera contratación de marketing además de llevar a cabo tareas de comunicación, puedo ir construyendo estructuras para sistematizar la identidad de marca y la estrategia de adquisición de clientes.
+                    </div>
+                    <div class="case-metrics">
+                        <span class="metric">Genero ToR de proveedores externos: videístas, fotógrafos, productoras</span>
+                        <span class="metric">Fortalezco la producción in-house: mayor rapidez vs agencias 2W a 3D</span>
+                        <span class="metric">Promociono de campañas en Meta y Google Ads</span>
+                    </div>
+                </article>
 
-    <!-- Perfect Fit Section -->
-    <section class="section">
-        <div class="perfect-fit">
-            <h2 class="section-title">Por qué soy <span class="serif-emphasis">perfect fit</span> para Ruuf</h2>
-            
-            <div class="fit-content">
-                <div class="fit-paragraph">
-                    <h4 class="fit-title">Foco en creatividad y producción rápida</h4>
-                    <p>Tengo experiencia y preparación para generar mensajes que acerquen temas complejos en contenido accesible, utilizando diversas herramientas digitales en formatos ad-hoc, sin perder de vista la funcionalidad y carácter narrativo.</p>
-                </div>
-                
-                <div class="fit-paragraph">
-                    <h4 class="fit-title">Experiencia en comunicaciones</h4>
-                    <p>Monitoreo panoramas, buscando la forma de relacionar la marca con actores institucionales, de la industria y de medios para aumentar el posicionamiento en tópicos de interés masivo. De la misma forma genero instancias para fortalecer a las comunidades orgánicas.</p>
-                </div>
-                
-                <div class="fit-paragraph">
-                    <h4 class="fit-title">Mindset sistémico</h4>
-                    <p>Además de manejar la implementación y reporte de acciones de marketing digital, estoy familiarizado con principios de diseño de interacción y experiencias. Este componente podría significar para Ruuf generar o adaptar la estrategia de marketing y comunicaciones para que forme parte del sistema de diseño o de gestión que ya existe con mayor fluidez.</p>
-                </div>
+                <!-- Caso 3: Cross-Platform Content -->
+                <article class="case-card">
+                    <div class="case-image placeholder">
+                        [AGREGAR: Grid de diferentes formatos - posts, reels, carruseles, infografías]
+                    </div>
+                    <div class="case-category">Comunicación y estrategia</div>
+                    <h2 class="case-title">Relacionamiento público</h2>
+                    <p class="case-description">
+                        Perfilo voces y rostros internos, asimismo realizo colaboraciones con rostros mediáticos de acuerdo a la necesidad de la marca.
+                    </p>
+                    
+                    <!-- Portfolio samples for this case -->
+                    <div class="case-portfolio">
+                        <h3 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Muestras de contenido:</h3>
+                        <div class="case-gallery" role="group" aria-label="Ejemplos de relacionamiento público">
+                            <div class="gallery-item placeholder">
+                                [Reels educativos]
+                            </div>
+                            <div class="gallery-item placeholder">
+                                [Stories interactivas]
+                            </div>
+                            <div class="gallery-item placeholder">
+                                [Campaña multi-canal]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-relevance">
+                        <strong>Relevancia para Ruuf:</strong> Tengo la capacidad de retomar contactos derivados de mi experiencia previa para evaluar colaboraciones. Asimismo me manejo en el sistema de las agencias y relacionamiento como una forma de impulsar la aparición de Ruuf en el boca a boca.
+                    </div>
+                    <div class="case-metrics">
+                        <span class="metric">He contactado con 7 rostros de medios en 2025</span>
+                        <span class="metric">Monitoreo mediante API de noticias y RRSS</span>
+                        <span class="metric">Fomento la participación de colegas en los contenidos</span>
+                    </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Call to Action -->
-    <section class="section">
-        <div class="cta-section">
-            <h2 class="section-title" style="color: white;">Conversemos</h2>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">Construyamos juntos el content strategy que necesita Ruuf para educar el mercado solar chileno</p>
-            
-            <div class="contact-buttons">
-                <a href="mailto:jcreyes1@uc.cl" class="contact-btn">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-                <a href="https://linkedin.com/in/juanreyesbarrios" class="contact-btn">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="tel:+56920323788" class="contact-btn">
-                    <i class="fas fa-phone"></i> WhatsApp
-                </a>
+        <!-- Perfect Fit Section -->
+        <section class="section" aria-labelledby="perfect-fit-title">
+            <div class="perfect-fit">
+                <h2 id="perfect-fit-title" class="section-title">Por qué soy <span class="serif-emphasis">perfect fit</span> para Ruuf</h2>
+                
+                <div class="fit-content">
+                    <div class="fit-paragraph">
+                        <h3 class="fit-title">Foco en creatividad y producción rápida</h3>
+                        <p>Tengo experiencia y preparación para generar mensajes que acerquen temas complejos en contenido accesible, utilizando diversas herramientas digitales en formatos ad-hoc, sin perder de vista la funcionalidad y carácter narrativo.</p>
+                    </div>
+                    
+                    <div class="fit-paragraph">
+                        <h3 class="fit-title">Experiencia en comunicaciones</h3>
+                        <p>Monitoreo panoramas, buscando la forma de relacionar la marca con actores institucionales, de la industria y de medios para aumentar el posicionamiento en tópicos de interés masivo. De la misma forma genero instancias para fortalecer a las comunidades orgánicas.</p>
+                    </div>
+                    
+                    <div class="fit-paragraph">
+                        <h3 class="fit-title">Mindset sistémico</h3>
+                        <p>Además de manejar la implementación y reporte de acciones de marketing digital, estoy familiarizado con principios de diseño de interacción y experiencias. Este componente podría significar para Ruuf generar o adaptar la estrategia de marketing y comunicaciones para que forme parte del sistema de diseño o de gestión que ya existe con mayor fluidez.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section" aria-labelledby="cta-title">
+            <div class="cta-section">
+                <h2 id="cta-title" class="section-title" style="color: white;">Conversemos</h2>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">Construyamos juntos el content strategy que necesita Ruuf para educar el mercado solar chileno</p>
+                
+                <div class="contact-buttons">
+                    <a href="mailto:jcreyes1@uc.cl" class="contact-btn" aria-label="Enviar email a Juan">
+                        <i class="fas fa-envelope" aria-hidden="true"></i> Email
+                    </a>
+                    <a href="https://linkedin.com/in/juanreyesbarrios" class="contact-btn" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de LinkedIn de Juan">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                    </a>
+                    <a href="tel:+56920323788" class="contact-btn" aria-label="Llamar a Juan por WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer style="background: #f8f9fa; padding: 2rem; text-align: center; border-top: 1px solid #eee;">
@@ -803,27 +895,39 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-        // Hide/show navigation on scroll
+        // Hide/show navigation on scroll with improved performance
         let lastScrollTop = 0;
+        let ticking = false;
         const nav = document.querySelector('.nav');
         
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
+        function updateNav() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
                 nav.style.transform = 'translateY(-100%)';
             } else {
                 nav.style.transform = 'translateY(0)';
             }
             lastScrollTop = scrollTop;
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateNav);
+                ticking = true;
+            }
         });
 
-        // Add animation on scroll
+        // Improved intersection observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -833,13 +937,27 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target); // Stop observing once animated
                 }
             });
         }, observerOptions);
 
-        // Observe all case cards
-        document.querySelectorAll('.case-card').forEach(card => {
-            observer.observe(card);
+        // Observe all case cards with a small delay for performance
+        setTimeout(() => {
+            document.querySelectorAll('.case-card').forEach(card => {
+                observer.observe(card);
+            });
+        }, 100);
+
+        // Keyboard navigation improvements
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('using-keyboard');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('using-keyboard');
         });
     </script>
 </body>
