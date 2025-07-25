@@ -6,6 +6,12 @@
     <title>Juan Reyes Barrios - Content Marketing Specialist | Ruuf Portfolio</title>
     <meta name="description" content="Content Marketing Specialist con 8+ años de experiencia creando contenidos educativos para organizaciones como UNICEF. Portfolio para Ruuf.">
     
+    <!-- Fonts optimizados -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;600;700&family=Merriweather:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         :root {
             /* Color System */
@@ -22,9 +28,9 @@
             --shadow-medium: 0 10px 40px rgba(0,0,0,0.1);
             --shadow-heavy: 0 20px 60px rgba(0,0,0,0.15);
             
-            /* Typography - Using system fonts */
-            --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            --font-serif: 'Times New Roman', Times, serif;
+            /* Typography */
+            --font-primary: 'Inter', sans-serif;
+            --font-serif: 'Merriweather', serif;
             
             /* Spacing */
             --space-xs: 0.5rem;
@@ -178,11 +184,6 @@
             margin: 0 auto;
         }
         
-        /* Reducir separación específica para perfect fit */
-        .section.perfect-fit-section {
-            padding-top: var(--space-lg);
-        }
-        
         .section-title {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
@@ -191,27 +192,14 @@
             color: var(--primary-green);
         }
         
-        /* Case Studies Grid optimizado */
+        /* Case Studies Grid optimizado con distribución inteligente */
         .case-studies {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
             gap: var(--space-lg);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-lg); /* Reducido para acercar a perfect fit */
             align-items: start;
-        }
-        
-        /* Masonry layout nativo cuando esté disponible */
-        @supports (grid-template-rows: masonry) {
-            .case-studies {
-                grid-template-rows: masonry;
-            }
-        }
-        
-        /* Para navegadores que soporten subgrid */
-        @supports (grid-template-rows: subgrid) {
-            .case-studies {
-                align-items: stretch;
-            }
+            grid-auto-rows: min-content; /* Las filas se ajustan al contenido mínimo */
         }
         
         .case-card {
@@ -413,7 +401,6 @@
             border: 1px solid rgba(255,255,255,0.3);
             min-width: 44px;
             min-height: 44px;
-            cursor: pointer;
         }
         
         .gallery-link:hover,
@@ -425,27 +412,17 @@
             outline-offset: 2px;
         }
         
-        /* Estilo específico para elementos que abren modal */
-        [data-modal] .gallery-link {
-            cursor: pointer;
-        }
-        
-        [data-modal]:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-light);
-        }
-        
         .gallery-link i {
             font-size: 0.7rem;
         }
         
         /* Perfect Fit Section */
         .perfect-fit {
-            background: linear-gradient(135deg, #f0f8f2 0%, #e8f5ea 100%);
+            background: var(--bg-white);
             border-radius: 15px;
             padding: var(--space-xl) var(--space-lg);
             box-shadow: var(--shadow-light);
-            border: 1px solid rgba(47, 82, 51, 0.1);
+            border: 1px solid var(--border-light);
         }
         
         .fit-content {
@@ -519,36 +496,16 @@
         
         /* Typography classes */
         .serif-emphasis {
-            font-family: var(--font-serif);
+            font-family: 'Merriweather', serif;
             font-weight: 600;
             color: var(--secondary-green);
         }
         
         .serif-emphasisw {
-            font-family: var(--font-serif);
+            font-family: 'Merriweather', serif;
             font-weight: 600;
             color: white;
         }
-        
-        /* Icon replacements using Unicode */
-        .icon {
-            display: inline-block;
-            font-style: normal;
-            font-weight: normal;
-            line-height: 1;
-        }
-        
-        .icon-arrow-down::before { content: "↓"; }
-        .icon-expand::before { content: "⤢"; }
-        .icon-images::before { content: "🖼"; }
-        .icon-external::before { content: "↗"; }
-        .icon-instagram::before { content: "📷"; }
-        .icon-close::before { content: "✕"; }
-        .icon-chevron-left::before { content: "‹"; font-size: 1.5em; }
-        .icon-chevron-right::before { content: "›"; font-size: 1.5em; }
-        .icon-envelope::before { content: "✉"; }
-        .icon-linkedin::before { content: "💼"; }
-        .icon-whatsapp::before { content: "💬"; }
         
         /* Responsive optimizado */
         @media (max-width: 1024px) {
@@ -653,194 +610,6 @@
             }
         }
         
-        /* Modal/Lightbox Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-medium);
-            backdrop-filter: blur(5px);
-        }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow-heavy);
-            transform: scale(0.8) translateY(50px);
-            transition: all var(--transition-medium);
-        }
-        
-        .modal-overlay.active .modal-content {
-            transform: scale(1) translateY(0);
-        }
-        
-        .modal-header {
-            background: var(--primary-green);
-            color: white;
-            padding: var(--space-md);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        .modal-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: var(--space-xs);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition-fast);
-        }
-        
-        .modal-close:hover,
-        .modal-close:focus {
-            background: rgba(255, 255, 255, 0.2);
-            outline: 2px solid white;
-            outline-offset: 2px;
-        }
-        
-        .modal-body {
-            padding: var(--space-lg);
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-        
-        .modal-gallery {
-            display: grid;
-            gap: var(--space-md);
-        }
-        
-        .modal-image {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: var(--shadow-light);
-            margin: 0 auto;
-            display: block;
-        }
-        
-        .modal-description {
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-top: var(--space-sm);
-            line-height: 1.5;
-        }
-        
-        /* Navigation buttons for multiple images */
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(47, 82, 51, 0.8);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition-fast);
-            backdrop-filter: blur(5px);
-        }
-        
-        .modal-nav:hover,
-        .modal-nav:focus {
-            background: rgba(47, 82, 51, 1);
-            transform: translateY(-50%) scale(1.1);
-            outline: 2px solid white;
-            outline-offset: 2px;
-        }
-        
-        .modal-nav.prev {
-            left: var(--space-md);
-        }
-        
-        .modal-nav.next {
-            right: var(--space-md);
-        }
-        
-        .modal-nav:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        /* Image counter */
-        .modal-counter {
-            position: absolute;
-            bottom: var(--space-md);
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            backdrop-filter: blur(5px);
-        }
-        
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .modal-content {
-                max-width: 95vw;
-                max-height: 95vh;
-            }
-            
-            .modal-body {
-                padding: var(--space-md);
-                max-height: 60vh;
-            }
-            
-            .modal-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            .modal-nav.prev {
-                left: var(--space-sm);
-            }
-            
-            .modal-nav.next {
-                right: var(--space-sm);
-            }
-        }
-        
         /* Print styles */
         @media print {
             .nav, .contact-buttons, .gallery-overlay {
@@ -875,7 +644,7 @@
             <h1><span class="serif-emphasisw">Hola, soy Juan y les presento mi trabajo</span></h1>
             <p class="subtitle">Llevo más de 8 años creando contenidos</p>
             <a href="#main-content" class="cta" aria-label="Ver mi trabajo">
-                <span class="icon icon-arrow-down" aria-hidden="true"></span>
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
             </a>
         </div>
     </header>
@@ -897,26 +666,26 @@
                     <div class="case-portfolio">
                         <h3 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Ejemplo 1<br><span class="serif-emphasis">Adaptación de campaña a diversos formatos</span></h3>
                         <div class="case-gallery" role="group" aria-label="Ejemplos de adaptación de campaña">
-                            <div class="gallery-item" data-modal="campaign-adaptation" data-modal-title="Adaptación de Campaña - Espacio Digital Seguro">
+                            <div class="gallery-item">
                                 <img src="img/espacio-digital1.png" alt="Campaña sobre uso seguro de internet">
                                 <div class="gallery-description">
                                     Construcción de relato verbal y audiovisual.
                                 </div>
                                 <div class="gallery-overlay">
-                                    <span class="gallery-link">
-                                        <span class="icon icon-expand" aria-hidden="true"></span> Ver detalles
-                                    </span>
+                                    <a href="https://www.unicef.org/chile/papá-todos-los-días" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
+                                    </a>
                                 </div>
                             </div>
-                            <div class="gallery-item" data-modal="design-guide" data-modal-title="Guías de Diseño - Material Educativo">
+                            <div class="gallery-item">
                                 <img src="img/espacio-digital2.png" alt="Campaña sobre uso seguro de internet">
                                 <div class="gallery-description">
                                     Adaptación de información compleja a guías descargables.
                                 </div>
                                 <div class="gallery-overlay">
-                                    <span class="gallery-link">
-                                        <span class="icon icon-images" aria-hidden="true"></span> Ver galería
-                                    </span>
+                                    <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en UNICEF.org
+                                    </a>
                                 </div>
                             </div>
                             <div class="gallery-item">
@@ -926,7 +695,7 @@
                                 </div>
                                 <div class="gallery-overlay">
                                     <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
-                                        <span class="icon icon-external" aria-hidden="true"></span> Ver en UNICEF.org
+                                        <i class="fas fa-file-image" aria-hidden="true"></i> Ver recursos
                                     </a>
                                 </div>
                             </div>
@@ -935,15 +704,15 @@
                     <div class="case-portfolio">
                         <h3 style="margin: 1.5rem 0 1rem 0; color: #2F5233; font-weight: 600;">Ejemplo 2<br><span class="serif-emphasis">Contenido destacado</span></h3>
                         <div class="case-gallery" role="group" aria-label="Ejemplos de contenido destacado">
-                            <div class="gallery-item" data-modal="featured-content" data-modal-title="Contenido Destacado - Campañas Multicanal">
+                            <div class="gallery-item">
                                 <img src="img/papa-todos-los.jpg" alt="Campaña sobre paternidad">
                                 <div class="gallery-description">
                                     Narración verbal y audiovisual para landing.
                                 </div>
                                 <div class="gallery-overlay">
-                                    <span class="gallery-link">
-                                        <span class="icon icon-expand" aria-hidden="true"></span> Ver detalles
-                                    </span>
+                                    <a href="https://www.unicef.org/chile/papá-todos-los-días" target="_blank" class="gallery-link" rel="noopener noreferrer">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en UNICEF.org
+                                    </a>
                                 </div>
                             </div>
                             <div class="gallery-item">
@@ -953,7 +722,7 @@
                                 </div>
                                 <div class="gallery-overlay">
                                     <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
-                                        <span class="icon icon-external" aria-hidden="true"></span> Ver en UNICEF.org
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Ver en UNICEF.org
                                     </a>
                                 </div>
                             </div>
@@ -964,7 +733,7 @@
                                 </div>
                                 <div class="gallery-overlay">
                                     <a href="https://www.unicef.org/chile/documents/un-espacio-digital-seguro" target="_blank" class="gallery-link" rel="noopener noreferrer">
-                                        <span class="icon icon-instagram" aria-hidden="true"></span> Ver en Instagram
+                                        <i class="fab fa-instagram" aria-hidden="true"></i> Ver en Instagram
                                     </a>
                                 </div>
                             </div>
@@ -1053,7 +822,7 @@
         </section>
 
         <!-- Perfect Fit Section -->
-        <section class="section perfect-fit-section" aria-labelledby="perfect-fit-title">
+        <section class="section" aria-labelledby="perfect-fit-title">
             <div class="perfect-fit">
                 <h2 id="perfect-fit-title" class="section-title">Por qué soy <span class="serif-emphasis">perfect fit</span> para Ruuf</h2>
                 
@@ -1084,13 +853,13 @@
                 
                 <div class="contact-buttons">
                     <a href="mailto:jcreyes1@uc.cl" class="contact-btn" aria-label="Enviar email a Juan">
-                        <span class="icon icon-envelope" aria-hidden="true"></span> Email
+                        <i class="fas fa-envelope" aria-hidden="true"></i> Email
                     </a>
                     <a href="https://linkedin.com/in/juanreyesbarrios" class="contact-btn" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de LinkedIn de Juan">
-                        <span class="icon icon-linkedin" aria-hidden="true"></span> LinkedIn
+                        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
                     </a>
                     <a href="tel:+56920323788" class="contact-btn" aria-label="Llamar a Juan por WhatsApp">
-                        <span class="icon icon-whatsapp" aria-hidden="true"></span> WhatsApp
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
                     </a>
                 </div>
             </div>
@@ -1104,33 +873,7 @@
         </p>
     </footer>
 
-    <!-- Modal for image galleries -->
-    <div id="imageModal" class="modal-overlay" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modal-title" class="modal-title">Título del Modal</h3>
-                <button class="modal-close" aria-label="Cerrar modal">
-                    <span class="icon icon-close" aria-hidden="true"></span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-gallery" id="modal-gallery">
-                    <!-- Las imágenes se cargarán aquí dinámicamente -->
-                </div>
-            </div>
-            <button class="modal-nav prev" aria-label="Imagen anterior">
-                <span class="icon icon-chevron-left" aria-hidden="true"></span>
-            </button>
-            <button class="modal-nav next" aria-label="Imagen siguiente">
-                <span class="icon icon-chevron-right" aria-hidden="true"></span>
-            </button>
-            <div class="modal-counter" id="modal-counter">1 / 1</div>
-        </div>
-    </div>
-
     <script>
-        console.log('Portfolio script loading...'); // Debug inicial
-        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1199,22 +942,6 @@
         document.addEventListener('mousedown', function() {
             document.body.classList.remove('using-keyboard');
         });
-        
-        // Inicializar masonry y re-ejecutar en resize
-        let resizeTimeout;
-        function handleResize() {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                // En lugar de masonry complejo, solo asegurar que el grid funcione
-                console.log('Window resized');
-            }, 250);
-        }
-        
-        // Función simplificada de masonry (opcional)
-        function initMasonry() {
-            console.log('Masonry initialized');
-            // Por ahora solo CSS Grid, masonry se puede agregar después
-        }
     </script>
 </body>
 </html>
