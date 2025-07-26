@@ -194,10 +194,10 @@
         .timeline-line {
             position: absolute;
             left: 50%;
-            top: 120px; /* Empieza después del título */
-            height: calc(100% - 320px); /* Termina antes del último elemento */
+            top: 150px; /* Posición del primer dot */
+            bottom: 100px; /* Deja espacio para el último dot */
             width: 2px;
-            background: var(--shadow-green);
+            background: linear-gradient(to bottom, var(--shadow-green) 0%, var(--shadow-green) 70%, transparent 100%);
             transform: translateX(-50%);
             z-index: 1;
         }
@@ -209,12 +209,13 @@
         
         .timeline-item {
             display: flex;
-            margin-bottom: var(--space-xl);
+            margin-bottom: var(--space-sm); /* Más reducido para mejor solapamiento */
             position: relative;
         }
         
         .timeline-item:nth-child(even) {
             flex-direction: row-reverse;
+            margin-top: calc(-1 * var(--space-lg)); /* Solapamiento más pronunciado */
         }
         
         .timeline-content {
@@ -340,14 +341,17 @@
             .timeline-line {
                 left: 30px;
                 width: 2px;
-                top: 120px;
-                height: calc(100% - 220px);
+                top: 150px; /* Consistente con desktop */
+                bottom: 80px; /* Menos espacio en mobile */
+                background: linear-gradient(to bottom, var(--shadow-green) 0%, var(--shadow-green) 60%, transparent 100%);
             }
             
             .timeline-item,
             .timeline-item:nth-child(even) {
                 flex-direction: row;
                 margin-left: 50px;
+                margin-bottom: var(--space-md); /* Separación en mobile para legibilidad */
+                margin-top: 0; /* Reset del solapamiento en mobile */
             }
             
             .timeline-content {
