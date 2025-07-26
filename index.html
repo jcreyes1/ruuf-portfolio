@@ -47,6 +47,8 @@
             --transition-slow: 0.5s ease;
         }
         
+        /* Smooth scroll */
+        
         * {
             margin: 0;
             padding: 0;
@@ -257,7 +259,7 @@
         }
         
         .metric {
-            background: #FAF7A0;
+            background: #fffb80;
             color: black;
             padding: var(--space-xs) var(--space-sm);
             border-radius: 15px;
@@ -266,7 +268,7 @@
             border: none;
             display: inline-block;
             margin: 0.2rem 0.3rem 0.2rem 0;
-            box-shadow: 0 2px 4px rgba(255, 176, 0, 0.3);
+            box-shadow: 0 2px 4px rgba(255, 251, 128, 0.3);
         }
         
         .case-relevance {
@@ -596,7 +598,193 @@
             animation: fadeInUp 0.6s ease forwards;
         }
         
-        /* Smooth scroll */
+        /* Timeline Section */
+        .timeline-section {
+            background: var(--bg-light);
+            padding: var(--space-xxl) 0;
+        }
+        
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            position: relative;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: calc(100% - 200px); /* Termina antes del último elemento */
+            width: 2px;
+            background: var(--shadow-green);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-items {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: var(--space-xl);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: calc(50% - 30px);
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-medium);
+            position: relative;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border: 12px solid transparent;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -24px;
+            border-left-color: var(--bg-white);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -24px;
+            border-right-color: var(--bg-white);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-white);
+            border: 4px solid var(--secondary-green);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            transition: all var(--transition-medium);
+        }
+        
+        .timeline-item:hover .timeline-dot {
+            background: var(--accent-orange);
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        
+        .timeline-period {
+            background: var(--accent-orange);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: var(--space-xs);
+            line-height: 1.3;
+        }
+        
+        .timeline-company {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary-green);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .timeline-highlights {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .timeline-highlights li {
+            margin-bottom: var(--space-xs);
+            padding-left: 15px;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        
+        .timeline-highlights li:before {
+            content: "→";
+            color: var(--accent-orange);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .timeline-category {
+            background: var(--primary-green);
+            color: white;
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: absolute;
+            top: -10px;
+            right: 15px;
+        }
+        
+        /* Timeline Responsive */
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+                width: 2px;
+                height: calc(100% - 200px);
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                margin-left: 50px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-content::before {
+                display: none;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .timeline-container {
+                padding: 0 var(--space-md);
+            }
+        }
         html {
             scroll-behavior: smooth;
         }
@@ -632,7 +820,7 @@
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <a href="#timeline-title" class="skip-link">Saltar al contenido principal</a>
     
     <!-- Navigation -->
     <nav class="nav" role="navigation" aria-label="Navegación principal">
@@ -646,11 +834,134 @@
         <div class="hero-content">
             <h1><span class="serif-emphasisw">Hola, soy Juan y les presento mi trabajo</span></h1>
             <p class="subtitle">Llevo más de 8 años compartiendo ideas</p>
-            <a href="#main-content" class="cta" aria-label="Ver mi trabajo">
+            <a href="#timeline-title" class="cta" aria-label="Ver mi trayectoria">
                 <i class="fas fa-arrow-down" aria-hidden="true"></i>
             </a>
         </div>
     </header>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" aria-labelledby="timeline-title">
+        <div class="timeline-container">
+            <h2 id="timeline-title" class="section-title">Mi trayectoria <span class="serif-emphasis">profesional</span></h2>
+            
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-items">
+                
+                <!-- UNICEF Chile -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-category">Actual</div>
+                        <div class="timeline-period">2022 - 2025</div>
+                        <h3 class="timeline-title">Design and Graphic Assistant G-5</h3>
+                        <div class="timeline-company">UNICEF Chile</div>
+                        <ul class="timeline-highlights">
+                            <li>Lideré producción integral de contenidos digitales gestionando presupuestos de $30K+ USD</li>
+                            <li>Reduje timeline de creación de 2 semanas a mismo día, optimizando workflows internos</li>
+                            <li>Alcancé 7M+ cuentas a través de campañas estratégicas en redes sociales</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Diploma Infographics -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-category">Educación</div>
+                        <div class="timeline-period">2023</div>
+                        <h3 class="timeline-title">Diploma en Infografías</h3>
+                        <div class="timeline-company">Pontificia Universidad Católica de Chile</div>
+                        <ul class="timeline-highlights">
+                            <li>Especialización en visualización de datos y diseño de información</li>
+                            <li>Enfoque en transformar datasets complejos en narrativas visuales accesibles</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Visual Communication Instructor -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-category">Docencia</div>
+                        <div class="timeline-period">2021 - 2022</div>
+                        <h3 class="timeline-title">Instructor de Comunicación Visual</h3>
+                        <div class="timeline-company">Corporación Cultural de Puente Alto</div>
+                        <ul class="timeline-highlights">
+                            <li>Diseñé curriculum integral cubriendo fundamentos de comunicación digital</li>
+                            <li>Estructuré clases sobre desafíos contemporáneos del diseño digital</li>
+                            <li>Recibí feedback excelente por metodología pedagógica empática y práctica</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Freelance Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-category">Freelance</div>
+                        <div class="timeline-period">2018 - 2022</div>
+                        <h3 class="timeline-title">Diseñador Freelance</h3>
+                        <div class="timeline-company">Chile & Argentina</div>
+                        <ul class="timeline-highlights">
+                            <li>Desarrollé campañas para clientes como La Roche-Posay y Santillana</li>
+                            <li>Gestioné producción visual end-to-end manteniendo estándares de calidad</li>
+                            <li>Coordiné proyectos internacionales cumpliendo deadlines ajustados</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Art Direction Course -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-category">Formación</div>
+                        <div class="timeline-period">2019</div>
+                        <h3 class="timeline-title">Curso Intensivo de Dirección de Arte</h3>
+                        <div class="timeline-company">Brother School of Creatives, Buenos Aires</div>
+                        <ul class="timeline-highlights">
+                            <li>Entrenamiento intensivo en comunicación estratégica de marca</li>
+                            <li>Enfoque en desarrollo de campañas publicitarias integrales</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Outreach Coordinator -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-category">Inicio</div>
+                        <div class="timeline-period">2016 - 2017</div>
+                        <h3 class="timeline-title">Coordinador de Comunicaciones</h3>
+                        <div class="timeline-company">Corporación Cultural de Puente Alto</div>
+                        <ul class="timeline-highlights">
+                            <li>Construí base de datos de 200+ organizaciones culturales</li>
+                            <li>Desarrollé sistemas de identidad visual aún en uso</li>
+                            <li>Creé propuestas gráficas reconocidas por el gobierno municipal</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <!-- Bachelor's Degree -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-category">Educación</div>
+                        <div class="timeline-period">2012 - 2016</div>
+                        <h3 class="timeline-title">Licenciatura en Artes y Humanidades (Diseño)</h3>
+                        <div class="timeline-company">Pontificia Universidad Católica de Chile</div>
+                        <ul class="timeline-highlights">
+                            <li>Minor doble en Psicología y Políticas Públicas</li>
+                            <li>Co-autor de investigación sobre acceso universitario y equidad</li>
+                            <li>Base interdisciplinaria combinando diseño, comportamiento humano y política</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -866,7 +1177,6 @@
         <section class="section" aria-labelledby="cta-title">
             <div class="cta-section">
                 <h2 id="cta-title" class="section-title" style="color: white;">Conversemos</h2>
-                <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">Construyamos juntos el content strategy que necesita Ruuf para educar el mercado solar chileno</p>
                 
                 <div class="contact-buttons">
                     <a href="mailto:jcreyes1@uc.cl" class="contact-btn" aria-label="Enviar email a Juan">
@@ -874,6 +1184,9 @@
                     </a>
                     <a href="https://linkedin.com/in/juanreyesbarrios" class="contact-btn" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil de LinkedIn de Juan">
                         <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                    </a>
+                    <a href="https://behance.net/juanreyesbarrios" class="contact-btn" target="_blank" rel="noopener noreferrer" aria-label="Ver portfolio de Juan en Behance">
+                        <i class="fab fa-behance" aria-hidden="true"></i> Behance
                     </a>
                     <a href="tel:+56920323788" class="contact-btn" aria-label="Llamar a Juan por WhatsApp">
                         <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
