@@ -18,6 +18,7 @@
             --primary-green: #2F5233;
             --secondary-green: #00A86B;
             --accent-orange: #F7931E;
+            --shadow-green: #102B22
             --text-primary: #333;
             --text-secondary: #666;
             --text-light: #999;
@@ -111,7 +112,7 @@
         
         /* Hero Section optimizado */
         .hero {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 50%, var(--accent-orange) 100%);
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 50%, var(--shadow-green) 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -256,7 +257,7 @@
         }
         
         .metric {
-            background: #FFF7D1;
+            background: var(--accent-orange);
             color: black;
             padding: var(--space-xs) var(--space-sm);
             border-radius: 15px;
@@ -269,7 +270,7 @@
         }
         
         .case-relevance {
-            background: linear-gradient(135deg, var(--secondary-green), var(--accent-orange));
+            background: linear-gradient(135deg, var(--secondary-green), var(--shadow-green));
             color: white;
             padding: var(--space-md);
             border-radius: 15px;
@@ -642,7 +643,7 @@
     <header id="hero" class="hero">
         <div class="hero-content">
             <h1><span class="serif-emphasisw">Hola, soy Juan y les presento mi trabajo</span></h1>
-            <p class="subtitle">Llevo más de 8 años creando contenidos</p>
+            <p class="subtitle">Llevo más de 8 años compartiendo ideas</p>
             <a href="#main-content" class="cta" aria-label="Ver mi trabajo">
                 <i class="fas fa-arrow-down" aria-hidden="true"></i>
             </a>
@@ -804,7 +805,7 @@
                 <!-- Caso 3: Cross-Platform Content -->
                 <article class="case-card">
                     <div class="case-category">Comunicación y estrategia</div>
-                    <h2 class="case-title">Fomento instancias para posicionar la marca y fortalecer la voz institucional</h2>
+                    <h2 class="case-title">Doy forma y posición a la voz institucional</h2>
                     <p class="case-description">
                         Detecto personajes internos que puedan ser de utilidad para narrar la marca y perfilo sus funciones de vocería. Asimismo detecto oportunidades de colaboración con actores clave en medios, redes e instituciones de interés para la marca.
                     </p>
